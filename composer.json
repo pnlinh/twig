@@ -28,5 +28,8 @@
             "Qh\\Twig\\Tests\\": "src/"
         }
     },
+    "config": {
+        "sort-packages": true
+    },
     "minimum-stability": "dev"
 }
