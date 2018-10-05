@@ -14,6 +14,29 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Twig Extensions
+    |--------------------------------------------------------------------------
+    |
+    | Built-in extensions.
+    |
+    */
+    'extensions' => [
+        \Qh\Twig\Extensions\UrlExtension::class,
+        \Qh\Twig\Extensions\CollectionExtension::class,
+        \Qh\Twig\Extensions\StringExtension::class,
+        \Qh\Twig\Extensions\UrlExtension::class,
+        \Qh\Twig\Extensions\ConfigExtension::class,
+        \Qh\Twig\Extensions\RequestExtension::class,
+        \Qh\Twig\Extensions\AuthExtension::class,
+        \Qh\Twig\Extensions\TranslationExtension::class,
+        \Qh\Twig\Extensions\AuthorizationExtension::class,
+
+        // Add your extensions here...
+        //
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Compiled View Path
     |--------------------------------------------------------------------------
     |

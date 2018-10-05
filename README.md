@@ -102,17 +102,23 @@ TO DO
 
 ### Extending Twig
 
-Twig allows you to define your own filters, functions, globals, tags or extensions using the addExtension method.
+Twig allows you to define your own extensions. Add your Extensions class or disable extensions in `config/twig.php`:
 
-The following example creates a `money` filter which formats a number, which should be an instance of int or float:
+```php
+    'extensions' => [
+        ...
+
+        // Add your extensions here...
+    ],
+```
+
+Or extending via Laravel Container. The following example creates a `\App\MyTwigExtension::class` extension:
 
 ```php
 <?php
 
 namespace App\Providers;
 
-use Twig\TwigFilter;
-use Qh\Twig\Facades\Twig;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -124,7 +130,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Twig::addFilter(new TwigFilter('money', 'number_format'));
+        $this->app['twig.extensions']->extend(function ($extensions) {
+            return array_merge($extensions, [
+                \App\MyTwigExtension::class,
+            ]);
+        });
     }
 
     /**
