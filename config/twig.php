@@ -30,6 +30,7 @@ return [
         \Qh\Twig\Extensions\AuthExtension::class,
         \Qh\Twig\Extensions\TranslationExtension::class,
         \Qh\Twig\Extensions\AuthorizationExtension::class,
+        \Qh\Twig\Extensions\DebugExtension::class,
 
         // Add your extensions here...
         //
