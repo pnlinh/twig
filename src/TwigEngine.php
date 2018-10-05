@@ -3,6 +3,7 @@
 namespace Qh\Twig;
 
 use Exception;
+use ErrorException;
 use Illuminate\Contracts\View\Engine;
 
 class TwigEngine implements Engine

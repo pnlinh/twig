@@ -46,7 +46,6 @@ class TwigLoader implements LoaderInterface
         $this->extension = $extension;
     }
 
-
     /**
      * Returns the source context for a given template logical name.
      *

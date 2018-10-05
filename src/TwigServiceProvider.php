@@ -17,6 +17,7 @@ class TwigServiceProvider extends ServiceProvider
         $this->loadConfiguration();
         $this->registerTwigLoader();
         $this->registerTwigEnvironment();
+        $this->registerTwigEngine();
     }
 
     /**
@@ -34,6 +35,16 @@ class TwigServiceProvider extends ServiceProvider
     {
         $this->app->singleton('twig.loader', function ($app) {
             return new TwigLoader($app['files'], $app['view.finder'], $app['config']['twig.extension']);
+        });
+    }
+
+    /**
+     * Register twig engine.
+     */
+    public function registerTwigEngine()
+    {
+        $this->app->singleton('twig.engine', function ($app) {
+            return new TwigEngine($app['twig.environment']);
         });
     }
 
@@ -60,6 +71,18 @@ class TwigServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/twig.php' => config_path('twig.php'),
         ], 'twig-config');
+
+        $this->registerViewExtension();
+    }
+
+    /**
+     * Register view extension.
+     */
+    protected function registerViewExtension()
+    {
+        $this->app['view']->addExtension($this->app['config']['twig.extension'], 'twig', function ($app) {
+            return $app['twig.engine'];
+        });
     }
 
     /**
@@ -71,6 +94,8 @@ class TwigServiceProvider extends ServiceProvider
     {
         return [
             'twig.loader',
+            'twig.environment',
+            'twig.engine',
         ];
     }
 

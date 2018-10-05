@@ -6,5 +6,5 @@ use Twig\Environment;
 
 class TwigEnvironment extends Environment
 {
-
+    //
 }
