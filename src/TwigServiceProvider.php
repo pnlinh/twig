@@ -8,6 +8,14 @@ use Twig\Environment;
 class TwigServiceProvider extends ServiceProvider
 {
     /**
+     * Built-in Extensions.
+     */
+    protected $extensions = [
+        Extensions\UrlExtension::class,
+        Extensions\CollectionExtension::class,
+    ];
+
+    /**
      * Register the service provider.
      *
      * @return void
@@ -54,10 +62,16 @@ class TwigServiceProvider extends ServiceProvider
     protected function registerTwigEnvironment()
     {
         $this->app->singleton('twig.environment', function ($app) {
-            return new Environment($app['twig.loader'], [
+            $env = new Environment($app['twig.loader'], [
                 'cache' => $app['config']['twig.compiled'],
-                'debug' => $app['config']['app.default'],
+                'debug' => $app['config']['app.debug'],
             ]);
+
+            foreach ($this->extensions as $extension) {
+                $env->addExtension($app->make($extension));
+            }
+
+            return $env;
         });
     }
 
