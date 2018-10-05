@@ -72,6 +72,9 @@ class TwigServiceProvider extends ServiceProvider
                 $env->addExtension($app->make($extension));
             }
 
+            // Add gloabls...
+            $env->addGlobal('app', $app);
+
             return $env;
         });
     }
