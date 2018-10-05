@@ -16,6 +16,7 @@ class TwigServiceProvider extends ServiceProvider
     {
         $this->loadConfiguration();
         $this->registerTwigLoader();
+        $this->registerTwigExtensions();
         $this->registerTwigEnvironment();
         $this->registerTwigEngine();
     }
@@ -33,9 +34,10 @@ class TwigServiceProvider extends ServiceProvider
      */
     protected function registerTwigLoader()
     {
-        $this->app->singleton('twig.loader', function ($app) {
+        $this->app->bind('twig.loader', function ($app) {
             return new TwigLoader($app['files'], $app['view.finder'], $app['config']['twig.extension']);
         });
+        $this->app->alias('twig.loader', TwigLoader::class);
     }
 
     /**
@@ -43,9 +45,18 @@ class TwigServiceProvider extends ServiceProvider
      */
     public function registerTwigEngine()
     {
-        $this->app->singleton('twig.engine', function ($app) {
+        $this->app->bind('twig.engine', function ($app) {
             return new TwigEngine($app['twig.environment']);
         });
+        $this->app->alias('twig.engine', TwigEngine::class);
+    }
+
+    /**
+     * Register twig extensions.
+     */
+    protected function registerTwigExtensions()
+    {
+        $this->app->instance('twig.extensions', $this->app['config']['twig.extensions']);
     }
 
     /**
@@ -53,12 +64,26 @@ class TwigServiceProvider extends ServiceProvider
      */
     protected function registerTwigEnvironment()
     {
-        $this->app->singleton('twig.environment', function ($app) {
-            return new Environment($app['twig.loader'], [
+        $this->app->bind('twig.environment', function ($app) {
+            $env = new Environment($app['twig.loader'], [
                 'cache' => $app['config']['twig.compiled'],
-                'debug' => $app['config']['app.default'],
+                'debug' => $app['config']['app.debug'],
             ]);
+
+            // Load extensions...
+            foreach ($app['twig.extensions'] as $extension) {
+                $env->addExtension($app->make($extension));
+            }
+
+            // Add gloabls...
+            $env->addGlobal('app', $app);
+
+            return $env;
         });
+
+        $this->app->alias('twig.environment', \Qh\Twig\TwigEnvironment::class);
+        $this->app->alias('twig.environment', \Twig\Environment::class);
+        $this->app->alias('twig.environment', \Twig_Environment::class);
     }
 
     /**
@@ -96,7 +121,7 @@ class TwigServiceProvider extends ServiceProvider
             'twig.loader',
             'twig.environment',
             'twig.engine',
+            'twig.extensions',
         ];
     }
-
 }
