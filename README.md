@@ -11,12 +11,19 @@ Working In Process...
 
 ## Available Extensions
 
-- Url Extension
-
-## Available Functions
-
-| Extension  | Functions |
-| :--- | :--- |
+| Name  | Status |
+| :--- | :---: |
+| Url  | ✔ |
+| Collection | ✔ |
+| String | 🍔 |
+| Math | 🍔 |
+| Config | 🍔 |
+| Request | 🍔 |
+| Session | 🍔 |
+| Auth | 🍔 |
+| Authorization | 🍔 |
+| Translation | 🍔 |
+| Debug | 🍔 |
 
 
 ## Available Filters
@@ -24,3 +31,4 @@ Working In Process...
 | Extension  | Filters |
 | :--- | :--- |
 | Url  | `action`, `route`, `url`, `secure_url`, `asset`, `secure_asset` |
+| Collection  | `join`, `first`, `last`, `concat`, `merge`, `map`, `reverse`, `length`, `size`, `sort`, `sort_desc`, `unique` |
