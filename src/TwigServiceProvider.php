@@ -13,6 +13,7 @@ class TwigServiceProvider extends ServiceProvider
     protected $extensions = [
         Extensions\UrlExtension::class,
         Extensions\CollectionExtension::class,
+        Extensions\StringExtension::class,
     ];
 
     /**

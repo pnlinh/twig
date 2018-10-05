@@ -37,7 +37,7 @@ class CollectionExtension extends AbstractExtension
      * @param  string  $glue
      * @return string
      */
-    public function join($items, $glue = '')
+    protected function join($items, $glue = '')
     {
         if ($items instanceof Collection) {
             return $items->implode($glue);
@@ -51,7 +51,7 @@ class CollectionExtension extends AbstractExtension
      * @param  array|Collection  $items
      * @return mixed
      */
-    public function first(TwigEnvironment $env, $items)
+    protected function first(TwigEnvironment $env, $items)
     {
         if ($items instanceof Collection) {
             return $items->first();
@@ -65,7 +65,7 @@ class CollectionExtension extends AbstractExtension
      * @param  array|Collection  $items
      * @return mixed
      */
-    public function last(TwigEnvironment $env, $items)
+    protected function last(TwigEnvironment $env, $items)
     {
         if ($items instanceof Collection) {
             return $items->last();
@@ -79,7 +79,7 @@ class CollectionExtension extends AbstractExtension
      * @param  string  $attribute
      * @return mixed
      */
-    public function map($items, $attribute)
+    protected function map($items, $attribute)
     {
         if (is_array($items)) {
             return array_map(function ($item) use ($attribute) {
@@ -95,11 +95,15 @@ class CollectionExtension extends AbstractExtension
     }
 
     /**
-     * @param  array|Collection $items
+     * @param  string|array|Collection $items
      * @return mixed
      */
-    public function reverse($items)
+    protected function reverse($items)
     {
+        if (is_string($items)) {
+            return strrev($items);
+        }
+
         if ($items instanceof Collection) {
             return $items->reverse();
         }
@@ -112,7 +116,7 @@ class CollectionExtension extends AbstractExtension
      * @param  mixed $items
      * @return integer
      */
-    public function length(TwigEnvironment $env, $items)
+    protected function length(TwigEnvironment $env, $items)
     {
         if ($items instanceof Collection) {
             return $items->count();
@@ -127,7 +131,7 @@ class CollectionExtension extends AbstractExtension
      * @return mixed
      * @throws \Twig_Error_Runtime
      */
-    public function sort($items, $attribute = null)
+    protected function sort($items, $attribute = null)
     {
         if ($items instanceof Collection) {
             return $items->sortBy($attribute);
@@ -142,7 +146,7 @@ class CollectionExtension extends AbstractExtension
      * @return mixed
      * @throws \Twig_Error_Runtime
      */
-    public function sortDesc($items, $attribute = null)
+    protected function sortDesc($items, $attribute = null)
     {
         if ($items instanceof Collection) {
             return $items->sortByDesc($attribute);
@@ -156,7 +160,7 @@ class CollectionExtension extends AbstractExtension
      * @param  string  $attribute
      * @return mixed
      */
-    public function unique($items, $attribute = null)
+    protected function unique($items, $attribute = null)
     {
         if ($items instanceof Collection) {
             return $items->unique($attribute);
