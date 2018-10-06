@@ -12,7 +12,7 @@ class DebugExtension extends AbstractExtension
      *
      * @return array An array of filters
      */
-    public function getFunctions()
+    public function getFilters()
     {
         return [
             new TwigFilter('dump', 'dump'),
