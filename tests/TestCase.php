@@ -24,14 +24,14 @@ abstract class TestCase extends BaseTestCase
     protected function getApplication(array $customConfig = [])
     {
         return tap(new Application, function ($app) {
-            /**
+            /*
              * @var \Illuminate\Foundation\Application $app
              */
             $app->instance('path', __DIR__);
 
             // Default
             $app['env'] = 'testing';
-            $app['path.config']  = __DIR__.'/config';
+            $app['path.config'] = __DIR__.'/config';
             $app['path.storage'] = __DIR__.'/storage';
 
             // Filesystem

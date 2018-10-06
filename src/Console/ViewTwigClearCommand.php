@@ -2,7 +2,6 @@
 
 namespace Qh\Twig\Console;
 
-use RuntimeException;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 
