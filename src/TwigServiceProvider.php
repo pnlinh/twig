@@ -2,7 +2,6 @@
 
 namespace Qh\Twig;
 
-use Twig\Environment;
 use Illuminate\Support\ServiceProvider;
 
 class TwigServiceProvider extends ServiceProvider
@@ -45,8 +44,8 @@ class TwigServiceProvider extends ServiceProvider
      */
     public function registerTwigEngine()
     {
-        $this->app->bind('twig.engine', function () {
-            return new TwigEngine($this->app['twig.environment']);
+        $this->app->bind('twig.engine', function ($app) {
+            return new TwigEngine($app['twig.environment']);
         });
         $this->app->alias('twig.engine', TwigEngine::class);
     }
@@ -65,7 +64,7 @@ class TwigServiceProvider extends ServiceProvider
     protected function registerTwigEnvironment()
     {
         $this->app->bind('twig.environment', function ($app) {
-            $env = new Environment($app['twig.loader'], [
+            $env = new TwigEnvironment($app['twig.loader'], [
                 'cache' => $app['config']['twig.compiled'],
                 'debug' => $app['config']['app.debug'],
             ]);
@@ -106,8 +105,8 @@ class TwigServiceProvider extends ServiceProvider
      */
     protected function registerViewExtension()
     {
-        $this->app['view']->addExtension($this->app['config']['twig.extension'], 'twig', function ($app) {
-            return $app['twig.engine'];
+        $this->app['view']->addExtension($this->app['config']['twig.extension'], 'twig', function () {
+            return $this->app['twig.engine'];
         });
     }
 

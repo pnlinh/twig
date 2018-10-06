@@ -21,16 +21,16 @@ return [
     |
     */
     'extensions' => [
-        \Qh\Twig\Extensions\UrlExtension::class,
-        \Qh\Twig\Extensions\CollectionExtension::class,
-        \Qh\Twig\Extensions\StringExtension::class,
-        \Qh\Twig\Extensions\UrlExtension::class,
-        \Qh\Twig\Extensions\ConfigExtension::class,
-        \Qh\Twig\Extensions\RequestExtension::class,
         \Qh\Twig\Extensions\AuthExtension::class,
-        \Qh\Twig\Extensions\TranslationExtension::class,
         \Qh\Twig\Extensions\AuthorizationExtension::class,
+        \Qh\Twig\Extensions\CollectionExtension::class,
+        \Qh\Twig\Extensions\ConfigExtension::class,
         \Qh\Twig\Extensions\DebugExtension::class,
+        \Qh\Twig\Extensions\MathExtension::class,
+        \Qh\Twig\Extensions\RequestExtension::class,
+        \Qh\Twig\Extensions\StringExtension::class,
+        \Qh\Twig\Extensions\TranslationExtension::class,
+        \Qh\Twig\Extensions\UrlExtension::class,
 
         // Add your extensions here...
         //
