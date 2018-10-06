@@ -3,6 +3,7 @@
 Allows you to use [Twig](https://twig.symfony.com/) in [Laravel](https://laravel.com/).
 
 [![Build Status](https://api.travis-ci.org/dinhquochan/twig.svg)](https://travis-ci.org/dinhquochan/twig)
+[![StyleCI](https://github.styleci.io/repos/151576647/shield?branch=master)](https://github.styleci.io/repos/151576647)
 [![Total Downloads](https://poser.pugx.org/handinh/twig/d/total.svg)](https://packagist.org/packages/handinh/twig)
 [![Latest Stable Version](https://poser.pugx.org/handinh/twig/v/stable.svg)](https://packagist.org/packages/handinh/twig)
 [![License](https://poser.pugx.org/handinh/twig/license.svg)](https://packagist.org/packages/handinh/twig)
@@ -154,8 +155,20 @@ Read more in: [Extending Twig](https://twig.symfony.com/doc/2.x/advanced.html).
 
 ### Artisan Commands
 
-TO DO
+Empty the Twig cache:
+
+```bash
+php artisan view:twig:clear
+```
 
 ## Links
 
 - [Twig Reference](https://twig.symfony.com/doc/2.x/)
+
+## Credits
+
+- [Dinh Quoc Han](https://github.com/dinhquochan)
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
