@@ -2,7 +2,6 @@
 
 namespace Qh\Twig\Tests;
 
-use Illuminate\Support\ServiceProvider;
 use Qh\Twig\TwigServiceProvider;
 
 class TwigServiceProviderTest extends TestCase
