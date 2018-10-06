@@ -98,6 +98,7 @@ class TwigServiceProvider extends ServiceProvider
         ], 'twig-config');
 
         $this->registerViewExtension();
+        $this->registerCommands();
     }
 
     /**
@@ -108,6 +109,18 @@ class TwigServiceProvider extends ServiceProvider
         $this->app['view']->addExtension($this->app['config']['twig.extension'], 'twig', function ($app) {
             return $app['twig.engine'];
         });
+    }
+
+    /**
+     * Register commands.
+     */
+    protected function registerCommands()
+    {
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                \Qh\Twig\Console\ViewTwigClearCommand::class,
+            ]);
+        }
     }
 
     /**

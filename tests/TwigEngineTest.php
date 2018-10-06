@@ -5,7 +5,6 @@ namespace Qh\Twig\Tests;
 use Qh\Twig\TwigEngine;
 use Qh\Twig\TwigLoader;
 use Qh\Twig\TwigEnvironment;
-use PHPUnit\Framework\TestCase;
 
 class TwigEngineTest extends TestCase
 {

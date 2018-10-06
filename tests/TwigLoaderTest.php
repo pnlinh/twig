@@ -3,7 +3,6 @@
 namespace Qh\Twig\Tests;
 
 use Qh\Twig\TwigLoader;
-use PHPUnit\Framework\TestCase;
 
 class TwigLoaderTest extends TestCase
 {
