@@ -28,32 +28,32 @@ class MathExtension extends AbstractExtension
         ];
     }
 
-    protected function devidedBy($a, $b)
+    public function devidedBy($a, $b)
     {
         return $a / $b;
     }
 
-    protected function minus($a, $b)
+    public function minus($a, $b)
     {
         return $a - $b;
     }
 
-    protected function plus($a, $b)
+    public function plus($a, $b)
     {
         return $a + $b;
     }
 
-    protected function times($a, $b)
+    public function times($a, $b)
     {
         return $a * $b;
     }
 
-    protected function mod($a, $b)
+    public function mod($a, $b)
     {
         return $a % $b;
     }
 
-    protected function atMost($a, $b = 0)
+    public function atMost($a, $b = 0)
     {
         if ($b > 0 && $a > $b) {
             return $b;
@@ -62,7 +62,7 @@ class MathExtension extends AbstractExtension
         return $a;
     }
 
-    protected function atLeast($a, $b = 0)
+    public function atLeast($a, $b = 0)
     {
         if ($a < $b) {
             return $b;

@@ -63,62 +63,62 @@ class StringExtension extends AbstractExtension
         ];
     }
 
-    protected function append($str, $appendText = null)
+    public function append($str, $appendText = null)
     {
         return "{$str}{$appendText}";
     }
 
-    protected function prepend($str, $rependText = null)
+    public function prepend($str, $rependText = null)
     {
         return "{$rependText}{$str}";
     }
 
-    protected function sha256($str)
+    public function sha256($str)
     {
         return hash('sha256', $str);
     }
 
-    protected function hmac($algo, $str, $secret)
+    public function hmac($algo, $str, $secret)
     {
         return hash_hmac($algo, $str, $secret);
     }
 
-    protected function hmacSha1($str, $secret)
+    public function hmacSha1($str, $secret)
     {
         return $this->hmac('sha1', $str, $secret);
     }
 
-    protected function hmacSha256($str, $secret)
+    public function hmacSha256($str, $secret)
     {
         return $this->hmac('sha256', $str, $secret);
     }
 
-    protected function pluralize($count, $str)
+    public function pluralize($count, $str)
     {
         return $count.' '.str_plural($str);
     }
 
-    protected function removeString($str, $removedStr)
+    public function removeString($str, $removedStr)
     {
         return str_replace($removedStr, '', $str);
     }
 
-    protected function removeStringFirst($str, $removedStr)
+    public function removeStringFirst($str, $removedStr)
     {
         return preg_replace('/'.preg_quote($removedStr, '/').'/', '', $str, 1);
     }
 
-    protected function replaceString($str, $search, $replace)
+    public function replaceString($str, $search, $replace)
     {
         return str_replace($search, $replace, $str);
     }
 
-    protected function replaceStringFirst($str, $search, $replace)
+    public function replaceStringFirst($str, $search, $replace)
     {
         return preg_replace('/'.preg_quote($search, '/').'/', $replace, $str, 1);
     }
 
-    protected function stripNewlines($str)
+    public function stripNewlines($str)
     {
         return preg_replace("/\r|\n/", '', $str);
     }

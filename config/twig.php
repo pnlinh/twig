@@ -47,5 +47,5 @@ return [
     |
     */
 
-    'compiled' => realpath(storage_path('framework/views/twig')),
+    'compiled' => storage_path('framework/views/twig'),
 ];

@@ -37,7 +37,7 @@ class CollectionExtension extends AbstractExtension
      * @param  string  $glue
      * @return string
      */
-    protected function join($items, $glue = '')
+    public function join($items, $glue = '')
     {
         if ($items instanceof Collection) {
             return $items->implode($glue);
@@ -51,7 +51,7 @@ class CollectionExtension extends AbstractExtension
      * @param  array|Collection  $items
      * @return mixed
      */
-    protected function first(TwigEnvironment $env, $items)
+    public function first(TwigEnvironment $env, $items)
     {
         if ($items instanceof Collection) {
             return $items->first();
@@ -65,7 +65,7 @@ class CollectionExtension extends AbstractExtension
      * @param  array|Collection  $items
      * @return mixed
      */
-    protected function last(TwigEnvironment $env, $items)
+    public function last(TwigEnvironment $env, $items)
     {
         if ($items instanceof Collection) {
             return $items->last();
@@ -79,7 +79,7 @@ class CollectionExtension extends AbstractExtension
      * @param  string  $attribute
      * @return mixed
      */
-    protected function map($items, $attribute)
+    public function map($items, $attribute)
     {
         if (is_array($items)) {
             return array_map(function ($item) use ($attribute) {
@@ -98,7 +98,7 @@ class CollectionExtension extends AbstractExtension
      * @param  string|array|Collection $items
      * @return mixed
      */
-    protected function reverse($items)
+    public function reverse($items)
     {
         if (is_string($items)) {
             return strrev($items);
@@ -116,7 +116,7 @@ class CollectionExtension extends AbstractExtension
      * @param  mixed $items
      * @return int
      */
-    protected function length(TwigEnvironment $env, $items)
+    public function length(TwigEnvironment $env, $items)
     {
         if ($items instanceof Collection) {
             return $items->count();
@@ -131,7 +131,7 @@ class CollectionExtension extends AbstractExtension
      * @return mixed
      * @throws \Twig_Error_Runtime
      */
-    protected function sort($items, $attribute = null)
+    public function sort($items, $attribute = null)
     {
         if ($items instanceof Collection) {
             return $items->sortBy($attribute);
@@ -146,7 +146,7 @@ class CollectionExtension extends AbstractExtension
      * @return mixed
      * @throws \Twig_Error_Runtime
      */
-    protected function sortDesc($items, $attribute = null)
+    public function sortDesc($items, $attribute = null)
     {
         if ($items instanceof Collection) {
             return $items->sortByDesc($attribute);
@@ -160,7 +160,7 @@ class CollectionExtension extends AbstractExtension
      * @param  string  $attribute
      * @return mixed
      */
-    protected function unique($items, $attribute = null)
+    public function unique($items, $attribute = null)
     {
         if ($items instanceof Collection) {
             return $items->unique($attribute);
