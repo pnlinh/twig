@@ -45,8 +45,8 @@ class TwigServiceProvider extends ServiceProvider
      */
     public function registerTwigEngine()
     {
-        $this->app->bind('twig.engine', function ($app) {
-            return new TwigEngine($app['twig.environment']);
+        $this->app->bind('twig.engine', function () {
+            return new TwigEngine($this->app['twig.environment']);
         });
         $this->app->alias('twig.engine', TwigEngine::class);
     }
