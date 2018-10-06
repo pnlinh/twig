@@ -2,10 +2,10 @@
 
 namespace Qh\Twig\Extensions;
 
-use Illuminate\Support\Facades\Auth;
-use Twig\Extension\AbstractExtension;
-use Twig\Extension\GlobalsInterface;
 use Twig\TwigFunction;
+use Illuminate\Support\Facades\Auth;
+use Twig\Extension\GlobalsInterface;
+use Twig\Extension\AbstractExtension;
 
 class AuthExtension extends AbstractExtension implements GlobalsInterface
 {

@@ -2,8 +2,8 @@
 
 namespace Qh\Twig;
 
-use Illuminate\Support\ServiceProvider;
 use Twig\Environment;
+use Illuminate\Support\ServiceProvider;
 
 class TwigServiceProvider extends ServiceProvider
 {
@@ -94,7 +94,7 @@ class TwigServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/twig.php' => config_path('twig.php'),
+            __DIR__.'/../config/twig.php' => config_path('twig.php'),
         ], 'twig-config');
 
         $this->registerViewExtension();

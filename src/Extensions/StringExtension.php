@@ -2,8 +2,8 @@
 
 namespace Qh\Twig\Extensions;
 
-use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
+use Twig\Extension\AbstractExtension;
 
 class StringExtension extends AbstractExtension
 {
@@ -59,8 +59,7 @@ class StringExtension extends AbstractExtension
                 if (function_exists($name = "str_{$name}")) {
                     return call_user_func_array($name, $arguments);
                 }
-                return null;
-            })
+            }),
         ];
     }
 
@@ -106,7 +105,7 @@ class StringExtension extends AbstractExtension
 
     protected function removeStringFirst($str, $removedStr)
     {
-        return preg_replace('/'.preg_quote($removedStr,'/').'/', '', $str, 1);
+        return preg_replace('/'.preg_quote($removedStr, '/').'/', '', $str, 1);
     }
 
     protected function replaceString($str, $search, $replace)
@@ -116,7 +115,7 @@ class StringExtension extends AbstractExtension
 
     protected function replaceStringFirst($str, $search, $replace)
     {
-        return preg_replace('/'.preg_quote($search,'/').'/', $replace, $str, 1);
+        return preg_replace('/'.preg_quote($search, '/').'/', $replace, $str, 1);
     }
 
     protected function stripNewlines($str)

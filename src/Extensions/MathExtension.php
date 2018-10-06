@@ -2,8 +2,8 @@
 
 namespace Qh\Twig\Extensions;
 
-use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
+use Twig\Extension\AbstractExtension;
 
 class MathExtension extends AbstractExtension
 {

@@ -68,7 +68,7 @@ class TwigEngine implements Engine
      */
     protected function handleViewException(Exception $e)
     {
-         throw new ErrorException($this->getMessage($e), 0, 1, $e->getFile(), $e->getLine(), $e);
+        throw new ErrorException($this->getMessage($e), 0, 1, $e->getFile(), $e->getLine(), $e);
     }
 
     /**

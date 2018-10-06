@@ -2,13 +2,13 @@
 
 namespace Qh\Twig;
 
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Twig\Source;
+use Twig\Error\LoaderError;
+use InvalidArgumentException;
+use Twig\Loader\LoaderInterface;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\View\ViewFinderInterface;
-use InvalidArgumentException;
-use Twig\Error\LoaderError;
-use Twig\Loader\LoaderInterface;
-use Twig\Source;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 
 class TwigLoader implements LoaderInterface
 {
@@ -140,9 +140,8 @@ class TwigLoader implements LoaderInterface
         return true;
     }
 
-
     /**
-     * Normalize the Twig template name to a name the ViewFinder can use
+     * Normalize the Twig template name to a name the ViewFinder can use.
      *
      * @param  string  $name
      * @return string The parsed name
@@ -150,7 +149,7 @@ class TwigLoader implements LoaderInterface
     protected function normalizeName($name)
     {
         if ($this->files->extension($name) === $this->extension) {
-            $name = substr($name, 0, - (strlen($this->extension) + 1));
+            $name = substr($name, 0, -(strlen($this->extension) + 1));
         }
 
         return $name;

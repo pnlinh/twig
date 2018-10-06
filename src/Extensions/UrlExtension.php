@@ -2,10 +2,10 @@
 
 namespace Qh\Twig\Extensions;
 
-use Illuminate\Routing\UrlGenerator;
-use Illuminate\Routing\Router;
-use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
+use Illuminate\Routing\Router;
+use Illuminate\Routing\UrlGenerator;
+use Twig\Extension\AbstractExtension;
 
 class UrlExtension extends AbstractExtension
 {
@@ -20,7 +20,7 @@ class UrlExtension extends AbstractExtension
     protected $router;
 
     /**
-     * Create a new url extension
+     * Create a new url extension.
      *
      * @param \Illuminate\Routing\UrlGenerator
      * @param \Illuminate\Routing\Router
