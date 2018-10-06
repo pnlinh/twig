@@ -2,10 +2,10 @@
 
 namespace Qh\Twig\Extensions;
 
-use Illuminate\Contracts\Config\Repository as ConfigContract;
-use Twig\Extension\AbstractExtension;
-use Twig\Extension\GlobalsInterface;
 use Twig\TwigFilter;
+use Twig\Extension\GlobalsInterface;
+use Twig\Extension\AbstractExtension;
+use Illuminate\Contracts\Config\Repository as ConfigContract;
 
 class ConfigExtension extends AbstractExtension implements GlobalsInterface
 {

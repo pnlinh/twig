@@ -3,8 +3,8 @@
 namespace Qh\Twig\Extensions;
 
 use Illuminate\Http\Request;
-use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
+use Twig\Extension\AbstractExtension;
 
 class RequestExtension extends AbstractExtension implements GlobalsInterface
 {

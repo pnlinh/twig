@@ -2,9 +2,9 @@
 
 namespace Qh\Twig\Extensions;
 
-use Illuminate\Contracts\Auth\Access\Gate;
-use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
+use Twig\Extension\AbstractExtension;
+use Illuminate\Contracts\Auth\Access\Gate;
 
 class AuthorizationExtension extends AbstractExtension
 {

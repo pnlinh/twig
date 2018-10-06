@@ -2,10 +2,10 @@
 
 namespace Qh\Twig\Extensions;
 
-use Illuminate\Support\Collection;
-use Qh\Twig\TwigEnvironment;
-use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
+use Qh\Twig\TwigEnvironment;
+use Illuminate\Support\Collection;
+use Twig\Extension\AbstractExtension;
 
 class CollectionExtension extends AbstractExtension
 {
@@ -114,7 +114,7 @@ class CollectionExtension extends AbstractExtension
     /**
      * @param  TwigEnvironment  $env
      * @param  mixed $items
-     * @return integer
+     * @return int
      */
     protected function length(TwigEnvironment $env, $items)
     {
